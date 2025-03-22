@@ -1,0 +1,19 @@
+.btn{
+    padding: 8px 15px;
+    border-radius: 12px;
+    border: 0;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(39, 39, 201);
+}
+
+.btn:active{
+    transform: scale(0.95);
+}
+.btn:disabled{
+    cursor: not-allowed;
+    transform: scale(1);
+    background-color: rgb(144, 144, 221);
+}
+

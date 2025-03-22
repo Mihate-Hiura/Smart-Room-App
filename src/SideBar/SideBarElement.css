@@ -1,0 +1,29 @@
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 10px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: all 0.3s;
+    cursor: pointer;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+}
+
+.nav-item:hover, .nav-item.active {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+}
+
+.nav-item i {
+    font-size: 20px;
+    margin-right: 10px;
+    width: 24px;
+    text-align: center;
+}
+
+a{
+    text-decoration: none; 
+    color: inherit;
+}
+

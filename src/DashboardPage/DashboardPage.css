@@ -1,0 +1,10 @@
+status{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+device{
+    display: flex;
+    flex-direction: column;
+}

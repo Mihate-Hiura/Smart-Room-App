@@ -1,0 +1,5 @@
+.light-status{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 35px;
+}

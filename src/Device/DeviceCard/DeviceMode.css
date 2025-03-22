@@ -1,0 +1,32 @@
+.mode-status{
+    display: flex;
+    padding: 10px 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--gray-light);
+    border-radius: 20px;
+    margin: 10px;
+    cursor: pointer;
+    border: 0px;
+}
+
+.mode-status i{
+    margin-right: 5px;
+    font-size: 20px;
+}
+.mode-status strong{
+    margin-left: 5px;
+    transition: all 3s;
+}
+
+.mode-status:hover{
+    background-color: rgba(178, 178, 178, 0.662);
+}
+
+.icon-blue{
+    color: blue;
+}
+
+.icon-red{
+    color: red;
+}
