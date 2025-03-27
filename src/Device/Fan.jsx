@@ -6,6 +6,7 @@ import DeviceStatus from "./DeviceCard/DeviceStatus";
 import CheckBox from "../Button/CheckBox";
 import RangeSlide from "../Button/RangeSlide";
 import fanAPI from "../API/fanAPI";
+import fanServerAPI from "../API/fanServerAPI";
 import { useState, useEffect, useRef } from "react";
 
 function Fan() {
@@ -52,7 +53,7 @@ function Fan() {
     }
 
     timeoutRef.current = setTimeout(async () => {
-      await fanAPI.add({ value: newValue });
+      await fanServerAPI.add({ value: newValue });
       setIsChanging(false);
     }, 500); 
 
