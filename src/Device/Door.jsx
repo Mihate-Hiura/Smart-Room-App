@@ -6,6 +6,7 @@ import DeviceMode from "./DeviceCard/DeviceMode";
 import "./Device.css";
 import doorAPI from "../API/doorAPI";
 import { useState, useEffect } from "react";
+import faceIdAPI from "../API/faceidAPI";
 function Door() {
   const [door, setDoor] = useState("Locked");
   const [isChanging, setIsChanging] = useState(false);
@@ -31,9 +32,12 @@ function Door() {
     }
   }, [isChanging]);
 
-  const handleMode = ()=>{
+  const handleMode = async ()=>{
       setFaceId(faceId==="On"?"Off":"On");
       setFaceIdIcon(faceId==="Off"?"fas fa-user-check icon-blue":"fa-solid fa-ban icon-red");
+      setIsChanging(true);
+      await faceIdAPI.add({ value: status });
+      setIsChanging(false);
   }
   return (
     <>
