@@ -22,7 +22,9 @@ function Door() {
     if(!isChanging){
       const fetchDoor = async () => {
         const doorList = await doorAPI.getAll();
+        const faceIdList = await faceIdAPI.getAll()
         setDoor(doorList);
+        setFaceId(faceIdList);
       };
       fetchDoor();
       const updateDoor = setInterval(() => {
@@ -31,12 +33,14 @@ function Door() {
       return () => clearInterval(updateDoor);
     }
   }, [isChanging]);
-
+  useEffect(() => {
+    setFaceIdIcon(faceId==="On"?"fas fa-user-check icon-blue":"fa-solid fa-ban icon-red");
+  }, [faceId])
   const handleMode = async ()=>{
       setFaceId(faceId==="On"?"Off":"On");
       setFaceIdIcon(faceId==="Off"?"fas fa-user-check icon-blue":"fa-solid fa-ban icon-red");
       setIsChanging(true);
-      await faceIdAPI.add({ value: status });
+      await faceIdAPI.add({ value: faceId==="On"?"Off":"On" });
       setIsChanging(false);
   }
   return (
