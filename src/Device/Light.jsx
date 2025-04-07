@@ -18,6 +18,7 @@ function Light() {
     setMode("Custom");
     setModeIcon("fa-solid fa-laptop-code icon-blue");
     setIsChanging(true);
+    await lightmodeAPI.add({value: "Custom"})
     bulb === "On"
       ? await lightbulbAPI.add({ value: "Off" })
       : await lightbulbAPI.add({ value: "On" });

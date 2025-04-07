@@ -21,12 +21,12 @@ function GetLight(){
         let light_icon;
         let cardColor;
         let warning;
-        if(light > 300 ){
+        if(light > 70 ){
             light_icon = "fa-solid fa-lightbulb";
             cardColor = "status-card text-red";
             warning = "High";
         }
-        else if(light >=100 && light <= 300){
+        else if(light >= 70 && light <= 40){
             light_icon = "fa-solid fa-lightbulb";
             cardColor = "status-card text-green";
             warning = "Medium";
