@@ -6,6 +6,7 @@ import DeviceMode from "./DeviceCard/DeviceMode.jsx";
 import CheckBox from "../Button/CheckBox.jsx";
 import lightbulbAPI from "../API/lightbulbAPI.js";
 import { useState, useEffect } from "react";
+import lightmodeAPI from "../API/lightmodeAPI.js";
 function Light() {
   const [bulb, setBulb] = useState("Off");
   const [localBulb, setLocalBulb] = useState("Off");
@@ -26,8 +27,10 @@ function Light() {
     if(!isChanging){
       const fetchBulb = async () => {
         const bulbList = await lightbulbAPI.getAll();
+        const lightmodeList = await lightmodeAPI.getAll();
         setBulb(bulbList);
         setLocalBulb(bulbList)
+        setMode(lightmodeList)
       };
       fetchBulb();
       const updateBulb = setInterval(() => {
@@ -36,14 +39,23 @@ function Light() {
       return () => clearInterval(updateBulb);
     }
   }, [isChanging]);
-  const handleMode = () => {
+  useEffect(() => {
+    setModeIcon(mode === "Auto"?"fa-solid fa-arrows-spin icon-blue":"fa-solid fa-laptop-code icon-blue");
+  }, [mode])
+  const handleMode = async () => {
     if(mode==="Custom"){
       setMode("Auto");
       setModeIcon("fa-solid fa-arrows-spin icon-blue");
+      setIsChanging(true);
+      await lightmodeAPI.add({value: "Auto"})
+      setIsChanging(false);
     }
     else if(mode==="Auto"){
       setMode("Custom");
       setModeIcon("fa-solid fa-laptop-code icon-blue");
+      setIsChanging(true);
+      await lightmodeAPI.add({value: "Custom"})
+      setIsChanging(false);
     }
   }
   return (

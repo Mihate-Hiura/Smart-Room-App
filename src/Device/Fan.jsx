@@ -7,6 +7,7 @@ import CheckBox from "../Button/CheckBox";
 import RangeSlide from "../Button/RangeSlide";
 import fanAPI from "../API/fanAPI";
 import { useState, useEffect, useRef } from "react";
+import fanmodeAPI from "../API/fanmodeAPI";
 
 function Fan() {
   const [value, setValue] = useState(0);
@@ -20,7 +21,9 @@ function Fan() {
     if(!isChanging){
       const fetchFan = async () => {
         const fanList = await fanAPI.getAll();
+        const fanmodeList = await fanmodeAPI.getAll()
         setValue(fanList);
+        setMode(fanmodeList);
       };
       
       fetchFan();
@@ -40,7 +43,10 @@ function Fan() {
     };
     handleLevel();
   }, [value]);
- 
+  useEffect(() => {
+    setModeIcon(mode === "Auto"?"fa-solid fa-arrows-spin icon-blue":"fa-solid fa-laptop-code icon-blue");
+  }, [mode])
+  
   const handleChange = (event) => {
     const newValue = event.target.value;
     setValue(newValue);
@@ -52,6 +58,7 @@ function Fan() {
     }
 
     timeoutRef.current = setTimeout(async () => {
+      await fanmodeAPI.add({ value: "Custom" });
       await fanAPI.add({ value: newValue });
       setIsChanging(false);
     }, 500); 
@@ -64,22 +71,27 @@ function Fan() {
     setModeIcon("fa-solid fa-laptop-code icon-blue");
     setValue(newValue);
     setIsChanging(true);
+    await fanmodeAPI.add({ value: "Custom" });
     await fanAPI.add({ value: newValue });
     setIsChanging(false);
   }; 
 
-  const handleMode = () => {
+  const handleMode = async () => {
     if(mode==="Custom"){
-      setMode("Rhythm");
-      setModeIcon("fa-solid fa-wind icon-blue");
-    }
-    else if(mode==="Rhythm"){
+      // setMode("Rhythm");
+      // setModeIcon("fa-solid fa-wind icon-blue");
       setMode("Auto");
       setModeIcon("fa-solid fa-arrows-spin icon-blue");
+      setIsChanging(true);
+      await fanmodeAPI.add({ value: "Auto" });
+      setIsChanging(false);
     }
     else if(mode==="Auto"){
       setMode("Custom");
       setModeIcon("fa-solid fa-laptop-code icon-blue");
+      setIsChanging(true);
+      await fanmodeAPI.add({ value: "Custom" });
+      setIsChanging(false);
     }
   }
  
