@@ -26,7 +26,7 @@ function GetLight(){
             cardColor = "status-card text-red";
             warning = "High";
         }
-        else if(light >= 70 && light <= 40){
+        else if(light >= 40 && light <= 70){
             light_icon = "fa-solid fa-lightbulb";
             cardColor = "status-card text-green";
             warning = "Medium";

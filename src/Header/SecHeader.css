@@ -1,7 +1,6 @@
 .section-header{
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
 }
 .section-header h3{
     font-size: 26px;

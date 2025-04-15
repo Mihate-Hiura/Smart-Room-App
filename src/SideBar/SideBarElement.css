@@ -27,3 +27,11 @@ a{
     color: inherit;
 }
 
+@media (max-width: 990px) {
+    .nav-item span{
+        display: none;
+    }
+    .nav-item {
+        justify-content: center;
+    }
+}

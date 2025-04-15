@@ -12,13 +12,11 @@ function App() {
         <sidebar>
           <Sidebar/>
         </sidebar>
-        <main>
-          
+        <main>   
           <Routes>
             <Route path="/Dashboard" Component={DashboardPage} />
             <Route path="/History" Component={HistoryPage}></Route>
-          </Routes>
-          
+          </Routes>   
         </main>        
       </div>
     </>

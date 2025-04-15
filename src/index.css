@@ -18,23 +18,25 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 html {
   background-color: #f8f9ff;
   color: var(--dark);
   line-height: 1.6;
+  overflow: none;
 }
 .container {
-  display: flex;
-  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 12% auto ;
+  gap: 0px 30px;
 }
 
 /* Sidebar */
 sidebar {
-  width: 200px;
+  width: 12%;
   background: linear-gradient(180deg, var(--primary), var(--secondary));
   color: white;
-  padding: 20px;
   position: fixed;
   height: 100%;
   z-index: 10;
@@ -42,7 +44,11 @@ sidebar {
   border-radius: 8px;
 }
 main{
-  flex: 1;
-  margin-left: 220px;
-  padding: 20px;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 10% 25% 5% auto;
+  margin-right: 20px ;
+  min-width: 600px;
 }

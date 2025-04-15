@@ -18,7 +18,9 @@ function DashboardPage(){
             <GetLight/>
             <GetDevice/>
           </status>
-          <SecHeader>Devices</SecHeader>
+          <secheader>
+            <SecHeader>Devices</SecHeader>
+          </secheader>
           <device>
             <Door/>
             <Light/>

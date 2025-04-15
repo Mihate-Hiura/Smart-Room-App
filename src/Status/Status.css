@@ -30,8 +30,6 @@
 }
 
 .status-card{
-    width: 40vw;
-    height: 130px;
     border-radius: var(--border-radius);
     padding: 20px;
     box-shadow: var(--shadow);
