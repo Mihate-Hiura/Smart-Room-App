@@ -94,7 +94,7 @@ function Fan() {
       setIsChanging(false);
     }
   }
- 
+  let status_text = `${level}(${value}%)`;
   return (
     <>
       <div className="device-card">
@@ -111,10 +111,7 @@ function Fan() {
           />
         </div>
         <div className="fan-status">
-          <RangeSlide value={value} action={handleChange} />
-          <DeviceStatus dot="status-dot online">
-            {level} ({value}%)
-          </DeviceStatus>
+          <RangeSlide value={value} action={handleChange} status={status_text}/>
         </div>
       </div>
     </>

@@ -37,7 +37,7 @@ function GetTemp(){
             warning = "Perfect";
         }
         else{
-            temp_icon = "fa-solid fa-temperature-empty text-aqua";
+            temp_icon = "fa-solid fa-temperature-empty";
             cardColor = "status-card text-aqua";
             warning = "Low";
         }

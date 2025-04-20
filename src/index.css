@@ -46,9 +46,4 @@ sidebar {
 main{
   grid-column-start: 2;
   grid-column-end: 3;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 10% 25% 5% auto;
-  margin-right: 20px ;
-  min-width: 600px;
 }
