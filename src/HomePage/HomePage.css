@@ -1,0 +1,111 @@
+.homepage {
+    font-family: Arial, sans-serif;
+    color: #333;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    color: #2563eb;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .btn-primary {
+    background-color: #2563eb;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .btn-primary:hover {
+    background-color: #7692e1;
+  }
+  
+  .btn-large {
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 999px;
+  }
+  
+  .hero {
+    text-align: center;
+    padding: 5rem 1.5rem;
+    background: linear-gradient(to right, #eff6ff, #dbeafe);
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #1e3a8a;
+  }
+  
+  .hero-description {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.125rem;
+    color: #555;
+  }
+  
+  .hero-button {
+    margin-top: 2rem;
+  }
+  
+  .features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+  
+  @media (min-width: 768px) {
+    .features {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .feature-item {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.875rem;
+    color: #666;
+    background-color: white;
+    margin-top: auto;
+  }
+  

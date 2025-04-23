@@ -41,7 +41,6 @@ sidebar {
   height: 100%;
   z-index: 10;
   box-shadow: var(--shadow);
-  border-radius: 8px;
 }
 main{
   grid-column-start: 2;
