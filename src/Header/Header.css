@@ -11,15 +11,19 @@ header{
     margin-bottom: 30px;
     padding-bottom: 15px;
     border-bottom: 1px solid #eee;
+    
 }
 header h2 {
     font-size: 32px;
     font-weight: 500px;
+    color: blue;
+    
 }
 header .user-info{
     font-size: 20px;
     display: flex;
     align-items: center;
+    color: blue;
 }
 .user-info i{
     font-size: 30px;

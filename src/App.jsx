@@ -19,7 +19,7 @@ function App() {
         </sidebar>
         <main>   
           <Routes>
-            <Route path="/Dashboard" Component={DashboardPage} />
+            <Route path="/Dashboard" Component={() => {return <DashboardPage username={username} />;}} />
             <Route path="/History" Component={HistoryPage}></Route>
             <Route path="/SignUp" Component={SignUp}></Route>
             <Route path="/LogIn" Component={LogIn}></Route>

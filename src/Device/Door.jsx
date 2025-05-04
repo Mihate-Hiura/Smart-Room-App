@@ -7,6 +7,7 @@ import "./Device.css";
 import doorAPI from "../API/doorAPI";
 import { useState, useEffect } from "react";
 import faceIdAPI from "../API/faceidAPI";
+import toast from "react-hot-toast";
 function Door() {
   const [door, setDoor] = useState("Locked");
   const [isChanging, setIsChanging] = useState(false);
@@ -16,6 +17,7 @@ function Door() {
     setDoor(status);
     setIsChanging(true);
     await doorAPI.add({ value: status });
+    await faceIdAPI.add({value: "Off"})
     setIsChanging(false);
   };
   useEffect(() => {
@@ -35,7 +37,11 @@ function Door() {
   }, [isChanging]);
   useEffect(() => {
     setFaceIdIcon(faceId==="On"?"fas fa-user-check icon-blue":"fa-solid fa-ban icon-red");
+    toast(`Face Recognition is ${faceId}`)
   }, [faceId])
+  useEffect(() => {
+    toast(`Door is ${door}`)
+  }, [door])
   const handleMode = async ()=>{
       setFaceId(faceId==="On"?"Off":"On");
       setFaceIdIcon(faceId==="Off"?"fas fa-user-check icon-blue":"fa-solid fa-ban icon-red");

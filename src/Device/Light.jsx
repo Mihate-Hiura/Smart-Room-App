@@ -7,6 +7,7 @@ import CheckBox from "../Button/CheckBox.jsx";
 import lightbulbAPI from "../API/lightbulbAPI.js";
 import { useState, useEffect } from "react";
 import lightmodeAPI from "../API/lightmodeAPI.js";
+import toast, {Toaster} from "react-hot-toast";
 function Light() {
   const [bulb, setBulb] = useState("Off");
   const [localBulb, setLocalBulb] = useState("Off");
@@ -23,6 +24,7 @@ function Light() {
       ? await lightbulbAPI.add({ value: "Off" })
       : await lightbulbAPI.add({ value: "On" });
     setIsChanging(false);
+    // toast(`Light is ${bulb==="On"?"Off":"On"}`)
   };
   useEffect(() => {
     if(!isChanging){
@@ -32,6 +34,7 @@ function Light() {
         setBulb(bulbList);
         setLocalBulb(bulbList)
         setMode(lightmodeList)
+        
       };
       fetchBulb();
       const updateBulb = setInterval(() => {
@@ -41,7 +44,11 @@ function Light() {
     }
   }, [isChanging]);
   useEffect(() => {
+    toast(`Light is ${bulb}`)
+  }, [bulb])
+  useEffect(() => {
     setModeIcon(mode === "Auto"?"fa-solid fa-arrows-spin icon-blue":"fa-solid fa-laptop-code icon-blue");
+    toast(`Light Mode: ${mode}`)
   }, [mode])
   const handleMode = async () => {
     if(mode==="Custom"){
@@ -50,6 +57,7 @@ function Light() {
       setIsChanging(true);
       await lightmodeAPI.add({value: "Auto"})
       setIsChanging(false);
+      // toast(`Light Mode: Auto`)
     }
     else if(mode==="Auto"){
       setMode("Custom");
@@ -57,6 +65,7 @@ function Light() {
       setIsChanging(true);
       await lightmodeAPI.add({value: "Custom"})
       setIsChanging(false);
+      // toast(`Light Mode: Custom`)
     }
   }
   return (
@@ -65,6 +74,7 @@ function Light() {
         <div class="device-header">
           <DeviceName icon="fa-solid fa-lightbulb">Smart Light</DeviceName>
           <CheckBox action={handleBulb} isChecked={localBulb === "On"} />
+          <Toaster/>
         </div>
         <div class="mode">
           <DeviceMode
@@ -73,6 +83,7 @@ function Light() {
             status={mode}
             mode={handleMode}
           />
+          <Toaster/>
         </div>
         <div class="light-status">
           <DeviceStatus dot="status-dot online">{localBulb}</DeviceStatus>

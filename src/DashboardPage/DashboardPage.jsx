@@ -8,11 +8,11 @@ import Light from '../Device/Light.jsx';
 import Fan from '../Device/Fan.jsx';
 import Header from "../Header/Header.jsx";
 import GetDevice from "../Status/GetFeedValue/GetDevice.jsx";
-function DashboardPage(){
+function DashboardPage({username}){
     return(
         <>
           <dashboard>
-            <Header>Dashboard</Header>
+            <Header username = {username}>Dashboard</Header>
             <status>
               <GetTemp/>
               <GetHumid/>

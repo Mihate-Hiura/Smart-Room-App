@@ -1,6 +1,6 @@
 import "./Header.css";
 import {useState, useEffect} from "react";
-function Header({children}){
+function Header({children, username}){
     const [greeting, setGreeting] = useState('');
     useEffect(() => {
         handleGreeting();
@@ -23,7 +23,7 @@ function Header({children}){
             <header>
                 <h2>{children}</h2>
                 <div class="user-info">
-                    <div>{greeting}, Kent !</div>
+                    <div>{greeting}, <strong>{username}</strong> !</div>
                     <i class="fa-solid fa-circle-user"></i>
                 </div>
             </header>

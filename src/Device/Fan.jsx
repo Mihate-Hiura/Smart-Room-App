@@ -8,6 +8,7 @@ import RangeSlide from "../Button/RangeSlide";
 import fanAPI from "../API/fanAPI";
 import { useState, useEffect, useRef } from "react";
 import fanmodeAPI from "../API/fanmodeAPI";
+import toast from "react-hot-toast";
 
 function Fan() {
   const [value, setValue] = useState(0);
@@ -44,7 +45,11 @@ function Fan() {
     handleLevel();
   }, [value]);
   useEffect(() => {
+    toast(`Fan is ${level}`)
+  }, [level])
+  useEffect(() => {
     setModeIcon(mode === "Auto"?"fa-solid fa-arrows-spin icon-blue":"fa-solid fa-laptop-code icon-blue");
+    toast(`Fan Mode: ${mode}`)
   }, [mode])
   
   const handleChange = (event) => {
