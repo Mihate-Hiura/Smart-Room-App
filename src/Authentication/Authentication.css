@@ -9,10 +9,6 @@ body {
     margin: 0;
 }
 
-button {
-    cursor: pointer;
-}
-
 .signup-container {
     width: 40vw;
     margin: 40px auto;

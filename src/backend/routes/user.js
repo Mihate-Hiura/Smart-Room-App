@@ -132,9 +132,9 @@ router.delete('/deleteAccount', async (req, res) => {
 });
 
 router.post('/updateAccount', async (req, res) => {
-  const { username, fname, lname } = req.body;
+  const { fname, lname, uname } = req.body;
   try {
-    const result = await userModel.updateAccount(username, fname, lname);
+    const result = await userModel.updateAccount(uname, fname, lname);
     if (result) {
       res.status(200).json({ message: "Account updated successfully!" });
     } else {
