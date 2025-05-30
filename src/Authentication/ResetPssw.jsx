@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { validatePassword, validatePasswordMatch, usePasswordToggle } from "./Authentication";
+import { getCookie } from "../App";
 
 import "./Authentication.css";
 import visibleIcon from "../assets/img/visible.png";
@@ -50,6 +51,13 @@ const ResetPassword = () => {
 
   // Retrieve email from navigation state
   const email = useLocation().state?.email;
+  var username = "";
+  // if email is null, get username from cookie
+  if (!email) {
+    username= getCookie("username");
+    console.log("Username from cookie:", username);
+  }
+
 
   const validateForm = () => {
     const newErrors = [];
@@ -81,7 +89,7 @@ const ResetPassword = () => {
       const response = await fetch("/api/user/reset-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, newPassword: formData.password }),
+        body: JSON.stringify({ email, username, newPassword: formData.password }),
       });
 
       if (response.ok) {

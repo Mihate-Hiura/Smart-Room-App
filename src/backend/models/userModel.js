@@ -51,14 +51,14 @@ const validatePassword = async (input, password) => {
     return await bcrypt.compare(password, hashedPassword);
 };
 
-const resetPassword = async (email, newPassword) => {
+const resetPassword = async (email, username, newPassword) => {
     // Hash the new password
     const hashedPassword = await bcrypt.hash(newPassword, 10);
   
     // Update the password in the database
     const result = await db.query(
-      'UPDATE account SET password = $1 WHERE email = $2 RETURNING *',
-      [hashedPassword, email]
+      'UPDATE account SET password = $1 WHERE email = $2 OR username = $3 RETURNING *',
+      [hashedPassword, email, username]
     );
     return result.rows[0];
 };
@@ -79,9 +79,9 @@ const updateAccount = async (uname, fname, lname) => {
   return result.rows[0];
 };
 
-const delAccount = async (uname) => {
+const deleteAccount = async (uname) => {
   const result = await db.query(
-    'DELETE FROM account WHERE username = $1 RETURNING *',
+    'DELETE FROM account WHERE username = $1',
     [uname]
   );
 }
@@ -96,6 +96,6 @@ module.exports = {
     resetPassword,
     getUsername,
     updateAccount,
-    delAccount
+    deleteAccount
   };
   

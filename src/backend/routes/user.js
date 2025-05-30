@@ -67,10 +67,10 @@ router.post('/forgot-password', async (req, res) => {
 });
 
 router.post('/reset-password', async (req, res) => {
-  const { email, newPassword } = req.body;
+  const { email, username, newPassword } = req.body;
 
   try {
-  const updatedAccount = await userModel.resetPassword(email, newPassword);
+  const updatedAccount = await userModel.resetPassword(email, username, newPassword);
     if (updatedAccount) {
       res.status(200).json({ message: "Password reset successfully!" });
     } else {

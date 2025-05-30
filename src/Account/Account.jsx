@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import {getCookie} from '../App.jsx'
 import './account.css';
 
 function Account() {
@@ -8,7 +9,7 @@ function Account() {
     const [editFields, setEditFields] = useState({ fname: false, lname: false });
     const [members, setMembers] = useState([]); // Array of family members
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 1; // Number of members per page
+    const itemsPerPage = 5; // Number of members per page
 
     useEffect(() => {
         async function fetchUserInfo() {
@@ -111,7 +112,7 @@ function Account() {
                 document.cookie = "username=; path=/; max-age=0";
                 window.location.href = "/";
             } else {
-                alert(data.message);
+                alert(data.error);
             }
         }
     };
@@ -124,19 +125,12 @@ function Account() {
         });
         const data = await res.json();
         if (data.success) {
-            alert("Account updated successfully.");
+            alert("Account updated successfully!");
             window.location.reload();
         } else {
             alert(data.message);
         }
     };
-
-    function getCookie(name) {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-        return null;
-    }
 
     return (
         <section className="account-card">
