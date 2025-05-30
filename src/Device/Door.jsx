@@ -51,8 +51,8 @@ function Door() {
   }
   return (
     <>
-      <div class="device-card">
-        <div class="device-header">
+      <div className="device-card">
+        <div className="device-header">
           <DeviceName icon="fa-solid fa-door-open">Smart Door</DeviceName>
           <DeviceStatus
             dot={door === "Locked" ? "status-dot offline" : "status-dot online"}
@@ -60,7 +60,7 @@ function Door() {
             {door}
           </DeviceStatus>
         </div>
-        <div class="face-id">
+        <div className="face-id">
           <DeviceMode
             icon={faceIdIcon}
             content="Face Recognition"
@@ -69,7 +69,7 @@ function Door() {
           />
           <DeviceMode icon="fas fa-shield-alt icon-blue" content="Status" status="Safe"/>
         </div>
-        <div class="door-action">
+        <div className="door-action">
           <Button icon="fa-solid fa-lock" action={() => handleDoor("Locked")} isDisabled={door === "Locked"}>
             Lock the door
           </Button>

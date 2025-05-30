@@ -70,13 +70,13 @@ function Light() {
   }
   return (
     <>
-      <div class="device-card">
-        <div class="device-header">
+      <div className="device-card">
+        <div className="device-header">
           <DeviceName icon="fa-solid fa-lightbulb">Smart Light</DeviceName>
           <CheckBox action={handleBulb} isChecked={localBulb === "On"} />
           <Toaster/>
         </div>
-        <div class="mode">
+        <div className="mode">
           <DeviceMode
             icon={modeIcon}
             content="Mode"
@@ -85,7 +85,7 @@ function Light() {
           />
           <Toaster/>
         </div>
-        <div class="light-status">
+        <div className="light-status">
           <DeviceStatus dot="status-dot online">{localBulb}</DeviceStatus>
         </div>
       </div>

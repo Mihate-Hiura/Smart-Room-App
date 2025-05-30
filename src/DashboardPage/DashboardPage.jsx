@@ -11,23 +11,23 @@ import GetDevice from "../Status/GetFeedValue/GetDevice.jsx";
 function DashboardPage({username}){
     return(
         <>
-          <dashboard>
+          <section className="dashboard">
             <Header username = {username}>Dashboard</Header>
-            <status>
+            <section className="status">
               <GetTemp/>
               <GetHumid/>
               <GetLight/>
               <GetDevice/>
-            </status>
-            <secheader>
+            </section>
+            <section className="secheader">
               <SecHeader>Devices</SecHeader>
-            </secheader>
-            <device>
+            </section>
+            <section className="device">
               <Door/>
               <Light/>
               <Fan/>
-            </device>
-          </dashboard>
+            </section>
+          </section>
         </>
     )
 }

@@ -3,7 +3,7 @@ import "./SecHeader.css";
 function SecHeader({children}){
     return(
         <>
-            <div class="section-header">
+            <div className="section-header">
               <h3>{children}</h3>
             </div>
         </>

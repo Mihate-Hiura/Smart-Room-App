@@ -1,0 +1,58 @@
+.account-card {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    margin: auto 0;
+    height: 100%;
+}
+
+.card {
+    box-shadow: 
+        0 5px 10px rgba(0, 0, 0, 0.1),
+        5px 0 10px rgba(0, 0, 0, 0.1),
+        -5px 0 10px rgba(0, 0, 0, 0.1),
+        0 -5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 70%;
+}
+
+.card h3 {
+    color: var(--primary);
+    text-shadow: 1px 1px 1px rgba(37, 17, 97, 0.5);
+}
+
+.field-item {
+    display: flex;
+    gap: 10px
+}
+
+.edit-icon {
+    cursor: pointer;
+}
+
+label {
+    font-weight: 500;
+}
+
+input {
+    border: none
+}
+
+.change-pw-btn {
+    padding: 5px 10px;
+    background-color: #a1b2fd;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.change-pw-btn:hover {
+    background-color: #5464b4;
+    font-weight: bold;
+}

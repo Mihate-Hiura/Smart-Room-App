@@ -48,7 +48,7 @@ const validatePassword = async (input, password) => {
         [input, input]
     );
     const hashedPassword = result.rows[0]?.password;
-    return  await bcrypt.compare(password, hashedPassword);
+    return await bcrypt.compare(password, hashedPassword);
 };
 
 const resetPassword = async (email, newPassword) => {
@@ -71,6 +71,21 @@ const getUsername = async (input) => {
   return result.rows[0]; // Return the first matching account
 };
 
+const updateAccount = async (uname, fname, lname) => {
+  const result = await db.query(
+    'UPDATE account SET fname = $1, lname = $2 WHERE username = $3 RETURNING *',
+    [fname, lname, uname]
+  );
+  return result.rows[0];
+};
+
+const delAccount = async (uname) => {
+  const result = await db.query(
+    'DELETE FROM account WHERE username = $1 RETURNING *',
+    [uname]
+  );
+}
+
 module.exports = {
     createAccount,
     getAllAccounts,
@@ -79,6 +94,8 @@ module.exports = {
     isEmailorUsernameExist,
     validatePassword,
     resetPassword,
-    getUsername
+    getUsername,
+    updateAccount,
+    delAccount
   };
   

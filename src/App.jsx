@@ -9,27 +9,29 @@ import SignUp from './Authentication/SignUp.jsx';
 import LogIn from './Authentication/LogIn.jsx';
 import ForgotPssw from './Authentication/ForgotPssw.jsx';
 import ResetPssw from './Authentication/ResetPssw.jsx';
+import Account  from './Account/Account.jsx';
+
 function App() {
   const [username, setUsername] = useState(getCookie("username"));
   return (
-    <>
-      <div class="container">
-        <sidebar> 
-          <Sidebar username={username} handleLogout={() => handleLogout(() => setUsername(null))} />
-        </sidebar>
-        <main>   
-          <Routes>
-            <Route path="/Dashboard" Component={() => {return <DashboardPage username={username} />;}} />
-            <Route path="/History" Component={HistoryPage}></Route>
-            <Route path="/SignUp" Component={SignUp}></Route>
-            <Route path="/LogIn" Component={LogIn}></Route>
-            <Route path="/ForgotPassword" Component={ForgotPssw}></Route>
-            <Route path="/" Component={HomePage}></Route>
-            <Route path="/ResetPassword" Component={ResetPssw}></Route>
-          </Routes>   
-        </main>        
-      </div>
-    </>
+    <div className="container">
+      <aside> 
+        <Sidebar username={username} handleLogout={() => handleLogout(() => setUsername(null))} />
+      </aside>
+      <main>
+        <Routes>
+          <Route path="/Dashboard" Component={() => {return <DashboardPage username={username} />;}} />
+          <Route path="/History" Component={HistoryPage}></Route>
+          <Route path="/SignUp" Component={SignUp}></Route>
+          <Route path="/LogIn" Component={LogIn}></Route>
+          <Route path="/ForgotPassword" Component={ForgotPssw}></Route>
+          <Route path="/" Component={HomePage}></Route>
+          <Route path="/ResetPassword" Component={ResetPssw}></Route>
+          <Route path="/HomePage" Component={HomePage}></Route>
+          <Route path="/Account" Component={Account}></Route>
+        </Routes>   
+      </main>        
+    </div>
   )
 }
 

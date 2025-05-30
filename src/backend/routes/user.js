@@ -82,4 +82,68 @@ router.post('/reset-password', async (req, res) => {
   }
 });
 
+// Get all account
+router.post('/getAllAccounts', async (req, res) => {
+  try {
+    var allMembers = await userModel.getAllAccounts();
+    res.status(200).json(allMembers);
+
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ errors: ["An unexpected error occurred. Please try again later."] });
+  }
+
+});
+
+router.post('/getUserInfo', async(req, res) => {
+  const { username } = req.body;
+  try {
+    var userInfo = await userModel.getUsername(username);
+    if (userInfo) {
+      res.status(200).json({
+        uname: userInfo.username,
+        fname: userInfo.fname,
+        lname: userInfo.lname,
+        email: userInfo.email,
+        pw: userInfo.password
+      });
+    } else {
+      res.status(404).json({ errors: ["User not found."] });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ errors: ["An unexpected error occurred. Please try again later."] });
+  }
+});
+
+router.delete('/deleteAccount', async (req, res) => {
+  const { username } = req.body;
+  try {
+    const result = await userModel.deleteAccount(username);
+    if (result) {
+      res.status(200).json({ message: "Account deleted successfully!" });
+    } else {
+      res.status(400).json({ errors: ["Failed to delete account. Please try again."] });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ errors: ["An unexpected error occurred. Please try again later."] });
+  }
+});
+
+router.post('/updateAccount', async (req, res) => {
+  const { username, fname, lname } = req.body;
+  try {
+    const result = await userModel.updateAccount(username, fname, lname);
+    if (result) {
+      res.status(200).json({ message: "Account updated successfully!" });
+    } else {
+      res.status(400).json({ errors: ["Failed to update account. Please try again."] });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ errors: ["An unexpected error occurred. Please try again later."] });
+  }
+});
+
 module.exports = router;

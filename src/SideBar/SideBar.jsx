@@ -6,8 +6,9 @@ function Sidebar({ username, handleLogout }){
     return(
         <>  
             
-            <div class="logo">
+            <div className="logo">
                 <img src={logo} alt="Logo" />
+                <h2>Smart Home</h2>
             </div>
             
             {username && (
@@ -20,7 +21,7 @@ function Sidebar({ username, handleLogout }){
             <SideBarElement 
                 logo = "fas fa-home"
                 content="Home"
-                to="/"
+                to="/HomePage"
             />
             {username? (
                 <SideBarElement

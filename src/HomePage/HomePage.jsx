@@ -8,12 +8,6 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
-      <header className="header">
-        <div className="header-container">
-          <h1 className="logo">SmartHome</h1>  
-        </div>
-      </header>
-
       <section className="hero">
         <h2 className="hero-title">Welcome to Your Smart Home</h2>
         <p className="hero-description">

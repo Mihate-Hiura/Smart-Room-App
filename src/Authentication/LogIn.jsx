@@ -55,7 +55,7 @@ const [showPassword, togglePasswordVisibility] = usePasswordToggle();
           }      
         }
     } catch (error) {
-      alert(["An error occurred. Please try again later."]);
+      alert(["An error occurred!. Please try again later."]);
     }
   };
 
@@ -92,7 +92,7 @@ const [showPassword, togglePasswordVisibility] = usePasswordToggle();
           <div className="password-container">
             <input
               className="password"
-              type={showPassword ? "text" : "password"}
+              type={showPassword ? "text" : "password"} autoComplete="current-password"
               placeholder="Password"
               name="password"
               value={formData.password}

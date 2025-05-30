@@ -3,8 +3,8 @@ import "./DeviceName.css";
 function DeviceName({icon,children}){
     return(
         <>
-            <div class="device-name">
-                <i class={icon}></i>
+            <div className="device-name">
+                <i className={icon}></i>
                 {children}
             </div>
         </>

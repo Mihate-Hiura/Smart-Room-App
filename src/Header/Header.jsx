@@ -22,9 +22,9 @@ function Header({children, username}){
         <>
             <header>
                 <h2>{children}</h2>
-                <div class="user-info">
+                <div className="user-info">
                     <div>{greeting}, <strong>{username}</strong> !</div>
-                    <i class="fa-solid fa-circle-user"></i>
+                    <i className="fa-solid fa-circle-user"></i>
                 </div>
             </header>
         </>
