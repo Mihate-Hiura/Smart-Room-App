@@ -121,13 +121,13 @@ router.delete('/deleteAccount', async (req, res) => {
   try {
     const result = await userModel.deleteAccount(username);
     if (result) {
-      res.status(200).json({ message: "Account deleted successfully!" });
+      res.status(200).json({ success: true, message: "Account deleted successfully!" });
     } else {
-      res.status(400).json({ errors: ["Failed to delete account. Please try again."] });
+      res.status(400).json({ success: false, errors: ["Failed to delete account!\n Please try again."] });
     }
   } catch (err) {
     console.error(err);
-    res.status(500).json({ errors: ["An unexpected error occurred. Please try again later."] });
+    res.status(500).json({ success: false, errors: ["An unexpected error occurred!\n Please try again later."] });
   }
 });
 

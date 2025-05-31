@@ -81,10 +81,11 @@ const updateAccount = async (uname, fname, lname) => {
 
 const deleteAccount = async (uname) => {
   const result = await db.query(
-    'DELETE FROM account WHERE username = $1',
+    'DELETE FROM account WHERE username = $1 RETURNING *',
     [uname]
   );
-}
+  return result.rows[0]; // returns the deleted record, or undefined if no record deleted
+};
 
 module.exports = {
     createAccount,

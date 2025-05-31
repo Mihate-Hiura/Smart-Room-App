@@ -112,7 +112,7 @@ function Account() {
                 document.cookie = "username=; path=/; max-age=0";
                 window.location.href = "/";
             } else {
-                alert(data.error);
+                alert(data.errors);
             }
         }
     };
