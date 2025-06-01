@@ -45,12 +45,12 @@ function Sidebar({ username, handleLogout }){
                   to="/LogIn"
                 />
               ) : (
-                <SideBarElement
-                  logo="fa-solid fa-right-from-bracket"
-                  content="Log Out"
-                  to="#"
+                <button className="nav-item logout-btn" title="Log Out"
                   onClick={handleLogout} // Call logout function
-                />
+                >
+                  <i className="fa-solid fa-right-from-bracket"></i>
+                  <span>Log Out</span>
+                </button>
               )}
         </>
     )

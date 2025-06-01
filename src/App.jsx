@@ -21,7 +21,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/Dashboard" Component={() => {return <DashboardPage username={username} />;}} />
-          <Route path="/History" Component={HistoryPage}></Route>
+          <Route path="/History/*" Component={HistoryPage}></Route>
           <Route path="/SignUp" Component={SignUp}></Route>
           <Route path="/LogIn" Component={LogIn}></Route>
           <Route path="/ForgotPassword" Component={ForgotPssw}></Route>
@@ -53,7 +53,7 @@ export const handleLogout = (onLogoutCallback) => {
     }
 
     // Redirect to the login page
-    window.location.href = "/";
+    window.location.href = "/HomePage";
   }
 };
 

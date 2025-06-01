@@ -37,6 +37,7 @@
     overflow: hidden;
     transition: background-color 0.3s;
     flex-grow: 1;
+    background-color: white;
 }
 .status-card h3{
     font-size: 24px;
