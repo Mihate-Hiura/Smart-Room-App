@@ -16,11 +16,11 @@ function HistoryPage() {
   useEffect(() => {
     async function fetchHistory() {
       try {
-        const lightData = await historyAPI.getFeedHistory("light", { limit: 50 });
-        const tempData = await historyAPI.getFeedHistory("temp", { limit: 50 });
-        const humidData = await historyAPI.getFeedHistory("humid", { limit: 50 });
-        const doorData = await historyAPI.getFeedHistory("door", { limit: 50 });
-        const fanData = await historyAPI.getFeedHistory("fan", { limit: 50 });
+        const lightData = await historyAPI.getFeedHistory("light");
+        const tempData = await historyAPI.getFeedHistory("temp");
+        const humidData = await historyAPI.getFeedHistory("humid");
+        const doorData = await historyAPI.getFeedHistory("door");
+        const fanData = await historyAPI.getFeedHistory("fan");
 
         setLightHistory(Array.isArray(lightData) ? lightData : []);
         setTempHistory(Array.isArray(tempData) ? tempData : []);
